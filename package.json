@@ -10,5 +10,8 @@
       "version": "12.18.0",
       "onFail": "download"
     }
+  },
+  "devDependencies": {
+    "supabase": "^3.0.0"
   }
 }
