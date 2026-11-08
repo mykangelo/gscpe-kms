@@ -118,24 +118,137 @@ docker --version
 
 ---
 
-## 3. Clone the repository
+## 3. Get the repository onto your machine
 
-Do **not** clone into a OneDrive-synced folder. `node_modules` contains many small files and OneDrive can cause slow installs and file locks.
+The project is public and lives here:
+
+**https://github.com/mykangelo/gscpe-kms**
+
+A GitHub account is **only** needed to contribute (push branches or open pull requests). You do **not** need an account to clone or run the app.
+
+### 3.1 Choose a location
+
+Do **not** clone into a OneDrive-synced folder. `node_modules` contains many small files, and OneDrive can cause slow installs and file locks.
 
 Recommended location:
 
 ```powershell
 mkdir $HOME\projects -Force
 cd $HOME\projects
+```
+
+### 3.2 Option A — GitHub CLI (recommended)
+
+The GitHub CLI handles authentication and cloning in one place.
+
+```powershell
+winget install --id GitHub.cli -e
+```
+
+Close and reopen the terminal, then:
+
+```powershell
+gh auth login
+```
+
+Choose:
+
+- **GitHub.com**
+- **HTTPS**
+- **Login with a web browser**
+
+Then clone and enter the project:
+
+```powershell
+gh repo clone mykangelo/gscpe-kms
+cd gscpe-kms
+```
+
+### 3.3 Option B — HTTPS with Git Credential Manager
+
+This requires only Git for Windows, which you installed in step 2.1.
+
+```powershell
 git clone https://github.com/mykangelo/gscpe-kms.git
 cd gscpe-kms
 ```
+
+The first time Git needs to authenticate, **Git Credential Manager** opens a browser window. Sign in with your GitHub account and approve access.
+
+> GitHub does not accept your account password for Git operations. If a terminal asks for a password, use the browser sign-in window or a [personal access token](https://github.com/settings/tokens) instead.
+
+### 3.4 Option C — SSH (optional)
+
+Use this only if you already use SSH keys with GitHub, or if you prefer not to use the credential manager.
+
+```powershell
+ssh-keygen -t ed25519 -C "your.email@example.com"
+Get-Content $HOME\.ssh\id_ed25519.pub | Set-Clipboard
+```
+
+Paste the copied key into **https://github.com/settings/keys** (New SSH key), then verify:
+
+```powershell
+ssh -T git@github.com
+```
+
+Finally clone:
+
+```powershell
+git clone git@github.com:mykangelo/gscpe-kms.git
+cd gscpe-kms
+```
+
+### 3.5 Option D — Download a ZIP (no Git)
+
+On GitHub: **Code → Download ZIP**, then extract it into `$HOME\projects\gscpe-kms`.
+
+This is fine for a quick look, but the extracted folder is **not** a Git repository: it has no history, cannot run `git pull`, and cannot push changes. Use a real clone if you plan to develop.
+
+### 3.6 Verify the clone
+
+From inside the project folder:
+
+```powershell
+git remote -v
+git status
+```
+
+You should see `origin` pointing to `https://github.com/mykangelo/gscpe-kms.git` (or the SSH equivalent) and a clean working tree on branch `main`.
 
 Enable long-path support once (helps some Node tooling on Windows):
 
 ```powershell
 git config --global core.longpaths true
 ```
+
+### 3.7 Get future updates
+
+Run this whenever the team pushes new work:
+
+```powershell
+git switch main
+git pull --ff-only
+pnpm install   # only needed when dependencies change
+```
+
+### 3.8 Contribute changes
+
+If you were added as a collaborator, push branches directly. Otherwise, fork the repository on GitHub and open a pull request from your fork.
+
+```powershell
+git switch -c feat/short-description
+# make your changes
+pnpm lint
+pnpm typecheck
+git add -A
+git commit -m "feat: short description"
+git push -u origin feat/short-description
+```
+
+Then open a pull request on GitHub against `main`. Ask the owner to add you under **GitHub → Settings → Collaborators and teams** if you need direct push access.
+
+> Never share your GitHub password or personal access token with teammates. Each person signs in with their own account.
 
 ---
 

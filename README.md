@@ -12,6 +12,7 @@ A web-based knowledge management system for the **PUP Graduate School — Comput
 - [Architecture](#architecture)
 - [Repository layout](#repository-layout)
 - [Current views](#current-views)
+- [Get the code](#get-the-code)
 - [Getting started](#getting-started)
 - [Scripts](#scripts)
 - [Local Supabase](#local-supabase)
@@ -119,6 +120,82 @@ All views currently share the single `/` route and are switched client-side via 
 
 Hash routing is intentional for the prototype. It will be replaced with real App Router routes (`/documents`, `/assistant`, …) when the data layer is introduced.
 
+## Get the code
+
+The repository is public:
+
+**https://github.com/mykangelo/gscpe-kms**
+
+You need **Git** installed to clone it. A GitHub account is only required to contribute (push branches or open pull requests) — not to clone or run the app. Windows users should follow the full guide in **[docs/installation-windows.md](docs/installation-windows.md)**, which covers Git installation and authentication in detail.
+
+### Clone with GitHub CLI (recommended)
+
+The GitHub CLI handles authentication for you.
+
+```bash
+# Install: https://cli.github.com/ (Windows: winget install --id GitHub.cli -e)
+gh auth login
+gh repo clone mykangelo/gscpe-kms
+cd gscpe-kms
+```
+
+### Clone with HTTPS
+
+Works everywhere. Git will ask you to sign in the first time. GitHub does **not** accept your account password for Git operations — use the browser sign-in prompt or a [personal access token](https://github.com/settings/tokens).
+
+```bash
+git clone https://github.com/mykangelo/gscpe-kms.git
+cd gscpe-kms
+```
+
+> **Windows:** Git for Windows includes Git Credential Manager, which opens a browser sign-in window automatically.
+>
+> **Linux:** install a credential helper (`git-credential-libsecret` or `git-credential-manager`) or use a personal access token when prompted.
+
+### Clone with SSH (optional)
+
+Use this if you already have an SSH key on GitHub:
+
+```bash
+git clone git@github.com:mykangelo/gscpe-kms.git
+cd gscpe-kms
+```
+
+No key yet? Create one and add it to GitHub:
+
+```bash
+ssh-keygen -t ed25519 -C "your.email@example.com"
+cat ~/.ssh/id_ed25519.pub
+# Copy the output into https://github.com/settings/keys
+ssh -T git@github.com   # verify
+```
+
+### Download a ZIP (no Git)
+
+On GitHub: **Code → Download ZIP**, then extract it. This is fine for a quick look, but it has no Git history and cannot receive `git pull` updates. Use a real clone for development.
+
+### Keep your copy up to date
+
+```bash
+git switch main
+git pull --ff-only
+pnpm install   # only needed when dependencies change
+```
+
+### Contribute changes
+
+The repository is public, so you can fork it and open a pull request without being added as a collaborator. If you are a team member who needs direct push access, ask the owner to add you under **GitHub → Settings → Collaborators and teams**.
+
+```bash
+git switch -c feat/short-description
+# make your changes
+pnpm lint && pnpm typecheck
+git add -A
+git commit -m "feat: short description"
+git push -u origin feat/short-description
+# open a pull request on GitHub
+```
+
 ## Getting started
 
 ### Requirements
@@ -150,6 +227,8 @@ corepack prepare pnpm@12.18.0 --activate
 ### Windows
 
 See the dedicated guide: **[docs/installation-windows.md](docs/installation-windows.md)**.
+
+It covers Git, Node.js, pnpm, Docker, cloning with HTTPS/SSH/GitHub CLI, keeping the repo updated, and the branch/PR workflow.
 
 ## Scripts
 
