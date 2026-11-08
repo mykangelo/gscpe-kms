@@ -1,0 +1,5 @@
+-- Seed data for local Supabase development.
+--
+-- The database schema and migrations have not been added yet. Once they are,
+-- put INSERT/UPDATE statements here so `supabase db reset` seeds a usable
+-- local environment.
