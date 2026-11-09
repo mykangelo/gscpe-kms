@@ -1,10 +1,10 @@
-# GSCPE Web App
+# GRADKnow Web App
 
 Next.js frontend for the GSCPE Knowledge Management System.
 
 - Framework: Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4
 - Entry point: [`src/app/page.tsx`](src/app/page.tsx)
-- Styles: [`src/app/gscpe.css`](src/app/gscpe.css)
+- Styles: [`src/app/gradknow.css`](src/app/gradknow.css)
 
 ## Run
 
