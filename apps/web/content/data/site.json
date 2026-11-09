@@ -1,0 +1,81 @@
+{
+  "contacts": {
+    "chair": "Dr. Arvin R. De La Casuat",
+    "emails": [
+      "pupgscecpe@gmail.com",
+      "docardelacruz@gmail.com"
+    ],
+    "phone": "+63 917 852 7846",
+    "facebook": "https://www.facebook.com/pupmscpe/"
+  },
+  "programs": [
+    {
+      "id": "ms",
+      "name": "Master of Science in Computer Engineering",
+      "short": "MS CpE",
+      "intro": "A research-oriented degree for engineers who want to master a field of specialization through coursework and a thesis that contributes to knowledge.",
+      "specializations": [
+        "Applied Security and Digital Forensics",
+        "Data Science and Engineering",
+        "AI and Machine Learning",
+        "Robotics",
+        "Intelligent Systems"
+      ],
+      "groups": [
+        {
+          "name": "Core",
+          "units": 12,
+          "subjects": [
+            "MSE 600 Technology and Development",
+            "MSE 601 Numerical Methods and Techniques",
+            "STA 600 Advanced Statistics",
+            "RSH 632 Methods of Engineering Research"
+          ]
+        },
+        {
+          "name": "Major",
+          "units": 18,
+          "subjects": [
+            "COE 610 Microprocessors and Microcomputers",
+            "COE 611 Programming and Methodology Languages",
+            "COE 612 Artificial Intelligence",
+            "COE 613 Operating System",
+            "COE 614 Modern Computer Microprocessors and Architecture",
+            "COE 615 Computer Communication Networks",
+            "COE 616 Fiber and Integrated Optics",
+            "COE 617 Robotics"
+          ]
+        },
+        {
+          "name": "Cognates",
+          "units": 6,
+          "subjects": [
+            "RSH 633 Research Seminar (Engineering)",
+            "COE 618 Nanotechnology (COE)"
+          ]
+        },
+        {
+          "name": "Thesis",
+          "units": 6,
+          "subjects": [
+            "RSH 640 Thesis"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phd",
+      "name": "Doctor of Philosophy in Computer Engineering",
+      "short": "PhD CpE",
+      "intro": "Prepares engineers to lead original research and development in academe and industry. Offered at the PUP main campus in Sta. Mesa, Manila, and accepting applicants for SY 2026-2027. Tuition is PhP 250.00 per unit with an adviser fee of PhP 3,500.00; miscellaneous and laboratory fees may apply.",
+      "specializations": [
+        "Applied Cybersecurity and Digital Forensics",
+        "Data Science",
+        "AI and Machine Learning",
+        "Robotics",
+        "Intelligent Systems"
+      ],
+      "groups": []
+    }
+  ]
+}

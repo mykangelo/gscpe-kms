@@ -1,0 +1,99 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>GRADKnow Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#030a17;--bg2:#06142a;--card:#0a1c34;--line:#164a6e;--gold:#f2c230;--teal:#37d6e0;--txt:#eef4fb;--mut:#a3b8d0;--red:#c8393b}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse 70% 40% at 85% 0,#0b6b8a55,transparent 65%),var(--bg);color:var(--txt);font:400 15px/1.6 Manrope,system-ui,sans-serif;min-height:100vh}
+h1,h2,h3{font-family:Montserrat,sans-serif;margin:0}.w{max-width:1040px;margin:0 auto;padding:0 24px}
+nav{background:#030a17ee;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}nav .w{display:flex;align-items:center;gap:16px;height:68px;justify-content:space-between}
+.brand{font:800 22px Montserrat,sans-serif}.brand span{color:var(--gold)}.brand small{font:500 13px Manrope,sans-serif;color:var(--mut);margin-left:10px}
+.tabs{display:flex;gap:4px;overflow-x:auto}.tabs button{flex:none;background:none;border:0;color:var(--mut);padding:9px 18px;border-radius:30px;font:500 15px Manrope,sans-serif;cursor:pointer}.tabs button.on{background:var(--red);color:#fff;font-weight:600}
+main{padding:40px 0 80px}.c{background:var(--card);border:1px solid var(--line);border-top:2px solid var(--gold);border-radius:6px;padding:24px;margin-bottom:22px}
+h2{font-size:28px;text-transform:uppercase;margin-bottom:6px}h3{font-size:17px;margin-bottom:10px}p.s{color:var(--mut);margin:0 0 26px}
+label{display:block;font-size:13px;color:var(--mut);margin-top:14px}input,select,textarea{display:block;width:100%;margin-top:6px;background:var(--bg);border:1px solid var(--line);color:var(--txt);padding:11px 14px;font:15px Manrope,sans-serif;border-radius:4px}textarea{min-height:110px}
+.btn{background:var(--gold);color:#1a1405;border:0;padding:11px 24px;border-radius:30px;font:600 14.5px Manrope,sans-serif;cursor:pointer;margin-top:16px}.btn.g{background:none;color:var(--gold);border:1px solid var(--gold)}.btn.d{background:none;color:#e0475b;border:1px solid #e0475b;margin:10px 8px 0 0;padding:6px 14px}
+.stats{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));margin-bottom:22px}.stats .c{margin:0}.stats b{display:block;font:800 36px Montserrat,sans-serif;color:var(--gold)}
+table{width:100%;border-collapse:collapse}td,th{padding:11px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}th{color:var(--mut);font-weight:500;font-size:13px}td .btn{margin:0 6px 0 0}
+.tag{color:var(--teal)}.no{color:#e0475b}.msg{margin-top:12px;color:var(--teal)}.ans{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);padding:16px;margin-top:16px}
+.grp{border:1px solid var(--line);padding:6px 16px 16px;margin-top:16px;border-radius:6px}.savebar{position:sticky;bottom:0;z-index:4;background:#030a17f2;border-top:1px solid var(--line);margin:0 -24px;padding:12px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}.savebar .btn{margin:0}.savebar .msg{margin:0}.dirty{color:var(--gold)}.pg{display:none}.pg.on{display:block}#login{max-width:420px;margin:12vh auto;padding:0 24px}.hide{display:none}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}.row .btn{margin:0}.btn.sm{padding:5px 12px;font-size:13px;margin:0}.hint{font-size:13px;color:var(--mut);margin:0 0 6px}
+@media(max-width:700px){.brand small{display:none}}
+</style></head><body>
+<div id="login"><div class="c"><h2 id="lt">Admin</h2><p class="s">GRADKnow · Graduate School of Computer Engineering</p>
+<label>Password<input id="pw" type="password" autocomplete="current-password"></label><label id="p2w" class="hide">Confirm password<input id="pw2" type="password" autocomplete="new-password"></label>
+<button class="btn" id="go">Sign in</button><div class="msg no" id="le"></div></div></div>
+<div id="app" class="hide"><nav><div class="w"><span class="brand">GRAD<span>Know</span><small>Admin</small></span><div class="tabs" id="tb"><button class="on" data-p="dash">Dashboard</button><button data-p="docs">Documents</button><button data-p="enroll">Enrollment</button><button data-p="site">Site content</button><button data-p="test">Test AI</button><button data-p="qs">Questions</button><button id="out">Sign out</button></div></div></nav>
+<main><div class="w">
+<div class="pg on" id="dash"><h2>Dashboard</h2><p class="s" id="mode"></p><div class="stats"><div class="c"><b id="s1">0</b>Documents</div><div class="c"><b id="s2">0</b>Knowledge chunks</div><div class="c"><b id="s3">0</b>Questions asked</div><div class="c"><b id="s4">0</b>No answer found</div></div>
+<div class="c"><h3>Train the AI</h3><p class="s">The AI answers only from your documents and site content. Every save retrains it automatically. Use this if you edited files in the folders by hand.</p><button class="btn" id="re">Retrain now</button><div class="msg" id="rm"></div></div></div>
+<div class="pg" id="docs"><h2>Documents</h2><p class="s">Templates and forms uploaded here appear on the student Documents tab immediately.</p>
+<div class="c"><h3 id="dh">Add or replace a document</h3><label>Title<input id="t"></label><label>Type<select id="cat"><option value="form">Form</option><option value="procedure">Procedure</option><option value="guideline">Guideline</option><option value="policy">Policy</option><option value="program">Program</option></select></label>
+<label>Short description (shown on the card)<input id="de"></label><label>File students can download (.docx, .pdf, .xlsx, .pptx, .txt, .md)<input id="fl" type="file" accept=".docx,.doc,.pdf,.xlsx,.xls,.pptx,.txt,.md"></label>
+<label>Summary shown on the student card (optional; leave empty for an automatic summary)<textarea id="su" style="min-height:80px"></textarea></label><label>Extra text for the AI (optional; text is read automatically from .docx, .pdf, .txt and .md)<textarea id="tx"></textarea></label><button class="btn" id="sv">Save and retrain</button><div class="msg" id="sm"></div></div>
+<div class="c"><table><thead><tr><th>Title</th><th>Type</th><th>File</th><th></th></tr></thead><tbody id="dt"></tbody></table></div></div>
+<div class="pg" id="enroll"><h2>Enrollment</h2><p class="s">Edit the Enrollment tab students see: steps, schedules, requirements and fees. Save to publish. The AI learns it automatically.</p><div id="ee"></div><div class="savebar"><button class="btn" id="es">Save changes</button><div class="msg" id="ex"></div></div></div>
+<div class="pg" id="site"><h2>Site content</h2><p class="s">Edit contacts, specializations and subjects. The student site, footer and AI update when you save.</p><div id="se"></div><div class="savebar"><button class="btn" id="ss">Save changes</button><div class="msg" id="sx"></div></div></div>
+<div class="pg" id="test"><h2>Test AI</h2><p class="s">Ask what a student would ask and check the answer.</p><div class="c"><input id="tq" placeholder="e.g. What are the admission requirements?"><button class="btn" id="ts">Ask</button><div class="ans hide" id="ta"></div></div></div>
+<div class="pg" id="qs"><h2>Student questions</h2><p class="s">Questions marked “no answer” show what to add next.</p><div class="c"><table><tbody id="qt"></tbody></table></div></div>
+</div></main></div>
+<script>
+const $=s=>document.getElementById(s),el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
+let T=sessionStorage.getItem('gk'),setup=false,S=null,EID='';
+const api=async(u,o={})=>{o.headers={...(o.headers||{}),'X-Admin-Token':T};const r=await fetch(u,o);if(r.status===401){out();throw new Error('Session ended. Sign in again.')}const j=await r.json();if(!r.ok)throw new Error(j.error||'Error');return j};
+function out(){sessionStorage.removeItem('gk');T=null;$('app').classList.add('hide');$('login').classList.remove('hide')}
+function enter(){$('login').classList.add('hide');$('app').classList.remove('hide');stats();list();loadSite();loadEnroll()}
+async function init(){try{const s=await(await fetch('/api/admin/status')).json();setup=!s.configured;
+$('lt').textContent=setup?'Create admin password':'Admin sign in';$('p2w').classList.toggle('hide',!setup);$('go').textContent=setup?'Create password':'Sign in'}
+catch(e){$('le').textContent=location.protocol==='file:'?'Do not open this file directly. Start the server, then go to http://localhost:5000/admin':'Cannot reach the server. Make sure it is running.'}}
+$('go').onclick=async()=>{$('le').textContent='';const pw=$('pw').value.trim();
+if(setup&&(pw.length<6||pw!==$('pw2').value.trim())){$('le').textContent=pw.length<6?'Use at least 6 characters.':'Passwords do not match.';return}
+try{const r=await fetch(setup?'/api/admin/setup':'/api/admin/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:pw})});const j=await r.json();if(!r.ok){$('le').textContent=j.error||'Error';return}T=j.token;sessionStorage.setItem('gk',T);enter()}
+catch(e){$('le').textContent='Cannot reach the server. Make sure it is running.'}};
+['pw','pw2'].forEach(i=>$(i).onkeydown=e=>{if(e.key==='Enter')$('go').click()});$('out').onclick=out;
+document.querySelectorAll('#tb button[data-p]').forEach(b=>b.onclick=()=>{document.querySelectorAll('#tb button').forEach(x=>x.classList.toggle('on',x===b));document.querySelectorAll('.pg').forEach(p=>p.classList.toggle('on',p.id===b.dataset.p));if(b.dataset.p==='qs'||b.dataset.p==='dash')stats();if(b.dataset.p==='docs')list()});
+async function stats(){const s=await api('/api/admin/stats');$('s1').textContent=s.documents;$('s2').textContent=s.chunks;$('s3').textContent=s.questions;$('s4').textContent=s.unanswered;
+$('mode').textContent=s.ai_online?'AI assistant online: answers are written from your documents.':'AI assistant online: answers and summaries are built from your documents.';
+$('qt').textContent='';s.recent.forEach(x=>{const r=el('tr'),a=el('td','',x.q),b=el('td',x.hit?'tag':'no',x.hit?'answered':'no answer');r.append(a,b);$('qt').append(r)})}
+async function list(){const d=await api('/api/admin/docs');$('dt').textContent='';d.forEach(x=>{const r=el('tr');r.append(el('td','',x.title),el('td','tag',x.category),el('td','',x.file||'text only'));
+const c=el('td'),e=el('button','btn g','Edit'),b=el('button','btn d','Delete');
+e.onclick=async()=>{EID=x.id;$('t').value=x.title;$('cat').value=x.category;$('de').value=x.description;$('fl').value='';$('tx').value='';$('su').value='';$('dh').textContent='Replace: '+x.title;scrollTo(0,0);try{const f=await api('/api/admin/docs/'+x.id);$('tx').value=f.text;$('su').value=f.summary||''}catch(e){}};
+b.onclick=async()=>{if(confirm('Delete "'+x.title+'"?')){await api('/api/admin/docs/'+x.id,{method:'DELETE'});list()}};c.append(e,b);r.append(c);$('dt').append(r)})}
+$('fl').onchange=()=>{if($('fl').files[0]){$('tx').value='';$('su').value='';$('tx').placeholder='Text will be read from the new file. Type here only to add extra notes.'}};
+$('re').onclick=async()=>{const j=await api('/api/admin/reindex',{method:'POST'});$('rm').textContent='Retrained: '+j.documents+' documents, '+j.chunks+' chunks.';stats()};
+$('sv').onclick=async()=>{const f=new FormData();f.append('id',EID);f.append('title',$('t').value);f.append('category',$('cat').value);f.append('description',$('de').value);f.append('text',$('tx').value);f.append('summary',$('su').value);if($('fl').files[0])f.append('file',$('fl').files[0]);
+try{const j=await api('/api/admin/docs',{method:'POST',body:f});$('sm').textContent='Saved. Students can see it now. AI retrained on '+j.stats[0]+' documents.';['t','de','tx','su','fl'].forEach(i=>$(i).value='');EID='';$('dh').textContent='Add or replace a document';list();stats()}catch(e){$('sm').textContent=e.message}};
+const lines=v=>v.split('\n').map(x=>x.trim()).filter(Boolean);
+let DIRTY=false;function mark(){DIRTY=true;$('sx').className='msg dirty';$('sx').textContent='Unsaved changes. Click Save changes so students see them.'}
+addEventListener('beforeunload',e=>{if(DIRTY){e.preventDefault();e.returnValue=''}});
+function inp(parent,label,val,set,area){const l=el('label'),i=el(area?'textarea':'input');i.value=val;i.oninput=()=>{set(i.value);mark()};l.append(label,i);parent.append(l)}
+async function loadSite(){S=await(await fetch('/api/site')).json();drawSite()}
+function drawSite(){const box=$('se');box.textContent='';const c=el('div','c');c.append(el('h3','','Contacts'));
+inp(c,'Program Chair',S.contacts.chair,v=>S.contacts.chair=v);inp(c,'Emails (one per line)',S.contacts.emails.join('\n'),v=>S.contacts.emails=lines(v),1);inp(c,'Phone',S.contacts.phone,v=>S.contacts.phone=v);inp(c,'Facebook page link',S.contacts.facebook,v=>S.contacts.facebook=v);box.append(c);
+S.programs.forEach(p=>{const d=el('div','c');d.append(el('h3','',p.short+' · '+p.name));inp(d,'Description',p.intro,v=>p.intro=v,1);inp(d,'Specializations (one per line: add or remove lines)',p.specializations.join('\n'),v=>p.specializations=lines(v),1);d.append(el('h3','','Subjects by group'));
+p.groups.forEach((g,gi)=>{const gb=el('div','grp');inp(gb,'Group name (e.g. Core, Major)',g.name,v=>g.name=v);inp(gb,'Units',g.units,v=>g.units=+v||0);inp(gb,'Subjects (one per line: add or remove lines)',g.subjects.join('\n'),v=>g.subjects=lines(v),1);
+const rm=el('button','btn d','Remove group');rm.onclick=()=>{p.groups.splice(gi,1);mark();drawSite()};gb.append(rm);d.append(gb)});
+const add=el('button','btn g','Add group');add.onclick=()=>{p.groups.push({name:'New group',units:0,subjects:[]});mark();drawSite()};d.append(add);box.append(d)})}
+$('ss').onclick=async()=>{try{const j=await api('/api/admin/site',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(S)});DIRTY=false;$('sx').className='msg';$('sx').textContent='Saved. The student site and AI are updated now.'}catch(e){$('sx').className='msg no';$('sx').textContent=e.message}};
+$('ts').onclick=async()=>{if(!$('tq').value.trim())return;const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:$('tq').value})});const j=await r.json();$('ta').classList.remove('hide');$('ta').textContent=j.answer+(j.sources&&j.sources.length?'\n\nSource: '+j.sources.join(', '):'')};
+
+/* ----- Enrollment editor ----- */
+let EN=null,EDIRTY=false;
+function emark(){EDIRTY=true;$('ex').className='msg dirty';$('ex').textContent='Unsaved changes. Click Save changes so students see them.'}
+addEventListener('beforeunload',e=>{if(EDIRTY){e.preventDefault();e.returnValue=''}});
+async function loadEnroll(){EN=await(await fetch('/api/enrollment',{cache:'no-store'})).json();drawEnroll()}
+function einp(parent,label,val,set,area,rows){const l=el('label'),i=el(area?'textarea':'input');i.value=val||'';if(area&&rows)i.style.minHeight=rows+'px';i.oninput=()=>{set(i.value);emark()};l.append(label,i);parent.append(l)}
+function move(arr,i,d){const j=i+d;if(j<0||j>=arr.length)return;[arr[i],arr[j]]=[arr[j],arr[i]];emark();drawEnroll()}
+function tools(box,arr,i,what){const r=el('div','row'),u=el('button','btn g sm','↑ Up'),d=el('button','btn g sm','↓ Down'),x=el('button','btn d sm','Remove '+what);
+u.onclick=()=>move(arr,i,-1);d.onclick=()=>move(arr,i,1);x.onclick=()=>{arr.splice(i,1);emark();drawEnroll()};x.style.margin='0';r.append(u,d,x);box.append(r)}
+function drawEnroll(){const box=$('ee');box.textContent='';
+const g=el('div','c');g.append(el('h3','','Introduction and apply button'));
+einp(g,'Introduction (shown under the title)',EN.intro,v=>EN.intro=v,1,80);
+EN.link=EN.link||{label:'',url:''};einp(g,'Button text (leave empty to hide the button)',EN.link.label,v=>EN.link.label=v);einp(g,'Button link',EN.link.url,v=>EN.link.url=v);box.append(g);
+const st=el('div','c');st.append(el('h3','','Steps'),el('p','hint','Shown as numbered steps, in this order.'));
+EN.steps.forEach((x,i)=>{const b=el('div','grp');b.append(el('h3','','Step '+(i+1)));einp(b,'Title',x.title,v=>x.title=v);einp(b,'Description',x.text,v=>x.text=v,1,80);tools(b,EN.steps,i,'step');st.append(b)});
+const as=el('button','btn g','Add step');as.onclick=()=>{EN.steps.push({title:'',text:''});emark();drawEnroll()};st.append(as);box.append(st);
+const sc=el('div','c');sc.append(el('h3','','Information cards'),el('p','hint','Each card shows on the student page, e.g. schedule, requirements, prerequisites, fees. Write one item per line.'));
+EN.sections.forEach((x,i)=>{const b=el('div','grp');b.append(el('h3','','Card '+(i+1)+(x.title?' · '+x.title:'')));einp(b,'Card title',x.title,v=>x.title=v);
+einp(b,'Items (one per line)',(x.items||[]).join('\n'),v=>x.items=lines(v),1,140);einp(b,'Note (optional, highlighted below the list)',x.note,v=>x.note=v,1,60);tools(b,EN.sections,i,'card');sc.append(b)});
+const ac=el('button','btn g','Add card');ac.onclick=()=>{EN.sections.push({title:'',items:[],note:''});emark();drawEnroll()};sc.append(ac);box.append(sc)}
+$('es').onclick=async()=>{try{const j=await api('/api/admin/enrollment',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(EN)});EDIRTY=false;$('ex').className='msg';$('ex').textContent='Saved. The student Enrollment tab and AI are updated now.';await loadEnroll()}catch(e){$('ex').className='msg no';$('ex').textContent=e.message}};
+if(T)enter();else init();
+</script></body></html>

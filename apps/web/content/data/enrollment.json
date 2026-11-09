@@ -1,0 +1,137 @@
+{
+  "intro": "Applicants apply online through PUP iApply, submit their requirements on-site at the GS Registrar's Office, take the Graduate School Entrance Exam (GSEE) and pass an interview before enrolling in the MS CpE or PhD CpE.",
+  "link": {
+    "label": "Open PUP GSEE iApply",
+    "url": "https://www.pup.edu.ph/iapply/GSEE"
+  },
+  "steps": [
+    {
+      "title": "Apply online",
+      "text": "Fill in the application on PUP iApply (open from November 1 to December 4, 2026). Prepare your 2 x 2 inch colored photo first. Ignore the notice that your application is still queued for 7-20 working days and go straight to the on-site submission."
+    },
+    {
+      "title": "Submit your requirements on-site",
+      "text": "Bring the complete requirements to the GS Registrar's Office. Incomplete requirements will not be accepted or processed."
+    },
+    {
+      "title": "Pay the entrance exam fee",
+      "text": "After your documents are verified, pay PhP 500.00 at the Cashier's Office using your printed Payment Voucher."
+    },
+    {
+      "title": "Take the GSEE",
+      "text": "Exam slots are limited. The date and time will be announced."
+    },
+    {
+      "title": "Interview",
+      "text": "Meet the Program Chair and/or the Dean."
+    },
+    {
+      "title": "Enroll",
+      "text": "If you meet all prerequisites and pass the interview, submit the enrollment documents to the School Registrar."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Schedule and venue",
+      "items": [
+        "Online application: November 1 to December 4, 2026",
+        "Exam schedule: date, time and other details to be announced (limited slots only)",
+        "Exam venue: 2nd / 3rd Floor, GS Building, M.H. Del Pilar Campus",
+        "On-site submission: GS Registrar's Office, G/F, M.H. Del Pilar Campus",
+        "Office hours: Monday to Friday (except national holidays), 9:00 AM to 6:00 PM",
+        "Entrance exam fee: PhP 500.00, paid to the Cashier's Office after verification of your documents"
+      ],
+      "note": ""
+    },
+    {
+      "title": "Before you apply online",
+      "items": [
+        "2 x 2 inch colored photo, taken recently, white background, formal pose, with complete name tag",
+        "Saved as JPEG (.jpg or .jpeg), not more than 300 KB, on your computer or USB device",
+        "PUP iApply works best on Chrome, Firefox, Safari or Edge"
+      ],
+      "note": "After applying online, you can view and print your payment voucher."
+    },
+    {
+      "title": "Master's: requirements",
+      "items": [
+        "Downloaded and signed GSEE Application Form, with the 2 x 2 colored photo you uploaded online",
+        "Transcript of Records from the last school attended (original and photocopy/CTC)",
+        "PSA Birth Certificate (original and photocopy)",
+        "PSA Certificate of Marriage, for married female applicants only (original and photocopy)",
+        "Printed copy of the downloaded Payment Voucher",
+        "Certificate of Employment or Service Record (original)",
+        "NBI or Police Clearance valid within the last 6 months, or Good Moral Certificate from employer (original; not required if employed in PUP)",
+        "Medical Certificate (\"Fit to Study\") within the last 6 months (original; not required if employed in PUP)",
+        "Updated Curriculum Vitae/Resume, including research works and publications, if any",
+        "Two-page double-spaced write-up/concept paper on the research area, idea or interest you want to investigate in your thesis (short bond paper, Arial 12)"
+      ],
+      "note": ""
+    },
+    {
+      "title": "Master's: admission prerequisites",
+      "items": [
+        "Bachelor's degree appropriate or related to the program. If it is in another field, take 18 units of pre-degree courses prescribed in the program of studies",
+        "Scholastic rating of at least 2.0, B, or 85% in the undergraduate courses",
+        "Qualify in the admission examination",
+        "Pass the interview by the Program Chair and/or the Dean"
+      ],
+      "note": ""
+    },
+    {
+      "title": "Doctorate: requirements",
+      "items": [
+        "Letter of Intent addressed to the Dean of the Graduate School",
+        "Recommendation for admission, filled in by your immediate supervisor/head of office",
+        "Downloaded and signed GSEE Application Form, with the 2 x 2 colored photo you uploaded online",
+        "Transcript of Records from the last school attended (original/CTC)",
+        "PSA Birth Certificate (original and photocopy)",
+        "PSA Certificate of Marriage, for married female applicants only (original and photocopy)",
+        "Printed copy of the downloaded Payment Voucher",
+        "Certificate of Employment or Service Record (original)",
+        "Medical Certificate (\"Fit to Study\") within the last 6 months (original; not required if employed in PUP)",
+        "Updated Curriculum Vitae/Resume, including research works and publications, if any",
+        "Two-page double-spaced write-up/concept paper on the research area, idea or interest you want to investigate in your dissertation (short bond paper, Arial 12)"
+      ],
+      "note": ""
+    },
+    {
+      "title": "Doctorate: admission prerequisites",
+      "items": [
+        "Appropriate master's degree (with thesis) from a university or college of recognized standing. If it is in another field, take the pre-degree (master's) courses prescribed in the program of studies",
+        "Qualify in the admission examination",
+        "Pass the interview by the Program Chair and/or the Dean",
+        "At least three (3) years of work experience",
+        "Each program may impose or recommend additional requirements"
+      ],
+      "note": "Applicants with a non-thesis master's degree must enroll in Thesis Writing, pass the Oral Defense and submit final copies of the paper to the Registrar's Office before taking doctorate courses."
+    },
+    {
+      "title": "Enrollment documents (Master's and Doctorate)",
+      "items": [
+        "Printed Admission Record, with 2 x 2 colored photo taken recently, white background, formal pose",
+        "Downloaded Pre-Registration Form",
+        "Downloaded, printed and signed Undertaking",
+        "Honorable Dismissal/Certificate of Transfer Credential",
+        "Original Transcript of Records of the highest degree earned (TOR marked \"Copy for PUP Graduate School\" is submitted within the semester)"
+      ],
+      "note": "Submit these to the School Registrar after you pass the admission exam and interview."
+    },
+    {
+      "title": "Schedule of fees",
+      "items": [
+        "Tuition per unit, Master's: PhP 750.00",
+        "Tuition per unit, Doctorate: PhP 1,000.00",
+        "Miscellaneous fees: PhP 2,725.00"
+      ],
+      "note": "Rates are subject to change without prior notice."
+    },
+    {
+      "title": "Inquiries",
+      "items": [
+        "GS Registrar's Office: 5335-1787 local 3371"
+      ],
+      "note": ""
+    }
+  ]
+}

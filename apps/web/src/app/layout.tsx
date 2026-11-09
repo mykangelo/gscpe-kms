@@ -1,33 +1,27 @@
 import type { Metadata } from "next";
-import { DM_Sans, Instrument_Serif } from "next/font/google";
+import { Manrope, Montserrat } from "next/font/google";
 import "./globals.css";
+import "./gradknow.css";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-});
-
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-});
+const manrope = Manrope({ variable: "--font-manrope", subsets: ["latin"], weight: ["400", "500", "600"] });
+const montserrat = Montserrat({ variable: "--font-montserrat", subsets: ["latin"], weight: ["600", "700", "800"] });
 
 export const metadata: Metadata = {
-  title: "GSCPE Knowledge Management System | PUP Graduate School",
+  title: "GRADKnow: AI-Based GSCpE Knowledge Management System",
   description:
-    "Policies, guidelines, procedures and forms for the PUP Graduate School Computer Engineering program, in one searchable place.",
+    "Admission, enrollment, policies, forms and program information for the PUP Graduate School Computer Engineering program, with an AI assistant that answers from official content.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${dmSans.variable} ${instrumentSerif.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={`${manrope.variable} ${montserrat.variable}`}>
+      <body>
+        <Nav />
+        <main>{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
