@@ -10,6 +10,7 @@ export default function Ask() {
   const [q, setQ] = useState("");
   const [busy, setBusy] = useState(false);
   const end = useRef<HTMLDivElement>(null);
+  const nextId = useRef(1);
 
   useEffect(() => { document.body.classList.add("chat"); return () => document.body.classList.remove("chat"); }, []);
   useEffect(() => { end.current?.scrollIntoView({ block: "end" }); }, [msgs]);
@@ -18,7 +19,8 @@ export default function Ask() {
     text = text.trim();
     if (!text || busy) return;
     setBusy(true); setQ("");
-    const id = Date.now();
+    const id = nextId.current;
+    nextId.current += 2;
     setMsgs((m) => [...m, { id, text, user: true }, { id: id + 1, text: "Thinking…" }]);
     let reply: Msg;
     try {

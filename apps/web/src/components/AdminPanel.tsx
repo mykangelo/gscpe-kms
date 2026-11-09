@@ -23,7 +23,20 @@ export default function AdminPanel({ enabled, authed }: { enabled: boolean; auth
     const j: { site: Site; enrollment: Enrollment } = await c.json();
     setSite(j.site); setEnr(j.enrollment);
   }, []);
-  useEffect(() => { if (ok) load(); }, [ok, load]);
+  useEffect(() => {
+    if (!ok) return;
+    let cancelled = false;
+    void (async () => {
+      const [a, b, c] = await Promise.all([fetch("/api/admin/stats"), fetch("/api/admin/docs"), fetch("/api/admin/content")]);
+      if (cancelled) return;
+      if (a.status === 401) { setOk(false); return; }
+      setStats(await a.json()); setDocs(await b.json());
+      const j: { site: Site; enrollment: Enrollment } = await c.json();
+      if (cancelled) return;
+      setSite(j.site); setEnr(j.enrollment);
+    })();
+    return () => { cancelled = true; };
+  }, [ok]);
 
   async function login(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
